@@ -13,18 +13,13 @@ const Register = ({ user }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const registerUser = async () => {
-            try {
                 const newUser = {
                     username,
                     email,
                     password,
-                }
                 const res = await axios.post('/auth/register', newUser)
                 console.log(res.data)
                 navigate('/login')
-            } catch (error) {
-                console.log(error)
-            }
         }
         registerUser()
     }
@@ -49,8 +44,6 @@ const Register = ({ user }) => {
                         <input
                             type="password"
                             placeholder="password"
-                            onChange={(e) => setPassword(e.target.value)}
-                            value={password}
                         />
                     </div>
                     <button className="register">Register</button>

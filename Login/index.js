@@ -23,6 +23,13 @@ const Login = ({ user, setUser }) => {
                 password,
             }
             loginUser(user, dispatch, navigate)
+            // try {
+            //     const res = await axios.post('/auth/login', user)
+            //     setUser(res.data)
+            //     navigate('/home1')
+            // } catch (error) {
+            //     setErr(error.response)
+            // }
         }
         login()
     }
@@ -35,11 +42,14 @@ const Login = ({ user, setUser }) => {
                         <input
                             type="text"
                             placeholder="name"
-                           
+                            onChange={(e) => setUserName(e.target.value)}
+                            value={username}
                         />
                         <input
                             type="password"
                             placeholder="password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            value={password}
                         />
                     </div>
                     <button className="login">Login</button>
