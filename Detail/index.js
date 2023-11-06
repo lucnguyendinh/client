@@ -193,7 +193,46 @@ const Detail = ({ user, setUser }) => {
                 </div>
             </div>
             {/* // */}
-            
+            <div className="detail" style={{ marginTop: '100px' }}>
+                <Card style={{ width: '18rem' }} className="detail-book">
+                    <Card.Img variant="top" src={coffe?.img} />
+                    <Card.Body>
+                        <Card.Title>{coffe?.name}</Card.Title>
+                        <Card.Text>{coffe?.des}</Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                        <ListGroup.Item>Giá: {coffe?.price} VNĐ</ListGroup.Item>
+                        <ListGroup.Item>Số lượng: {coffe?.quantity}</ListGroup.Item>
+                    </ListGroup>
+                </Card>
+                {/*  */}
+                <h2>{err}</h2>
+                <div className="story">
+                    <h2>Đặt hàng</h2>
+                    <h3>Số lượng</h3>
+                    <div className="soluong">
+                        <h3
+                            onClick={() => {
+                                if (soluong === 0) {
+                                    return setSoluong(soluong)
+                                }
+                                return setSoluong(soluong - 1)
+                            }}
+                        >
+                            -
+                        </h3>
+                        <p>{soluong}</p>
+                        <h3
+                            onClick={() => {
+                                if (soluong === coffe.quantity) {
+                                    return setSoluong(soluong)
+                                }
+                                return setSoluong(soluong + 1)
+                            }}
+                        >
+                            +
+                        </h3>
+                    </div>
                     <div className="size">
                         <h2>Size</h2>
                         <Form.Select aria-label="Default select example" onChange={(e) => setSize(e.target.value)}>
